@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Correlation Analysis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body class="container">
+    <h1 class="text-center">Correlation Analysis Tool</h1>
+    <div>
+        <label for="dataset-select">Dataset:</label>
+        <select id="dataset-select" class="form-control"></select>
+    </div>
+    <div>
+        <label>Variables:</label>
+        <div id="variables" class="checkbox"></div>
+    </div>
+    <div>
+        <label>Correlation Method:</label>
+        <select id="method-select" class="form-control">
+            <option value="pearson">Pearson</option>
+            <option value="spearman">Spearman</option>
+            <option value="kendall">Kendall</option>
+        </select>
+    </div>
+    <div>
+        <label>Date Range:</label>
+        <input type="date" id="start-date">
+        <input type="date" id="end-date">
+    </div>
+    <div>
+        <label>Group:</label>
+        <select id="group-select" class="form-control">
+            <option value="All">All</option>
+            <option value="A">Group A</option>
+            <option value="B">Group B</option>
+        </select>
+    </div>
+    <div>
+        <label>Moderator Variable:</label>
+        <select id="moderator-select" class="form-control">
+            <option value="">None</option>
+        </select>
+    </div>
+    <button id="update-btn" class="btn btn-primary">Update Correlation</button>
+
+    <div id="heatmap-container" class="text-center">
+        <h2>Correlation Heatmap</h2>
+        <div id="correlation-chart" style="display: inline-block;"></div>
+    </div>
+
+    <div id="adjusted-correlation-container" class="text-center" style="display: none;">
+        <h2>Adjusted Correlations (Using Moderator Variable)</h2>
+        <div id="adjusted-correlation-chart" style="display: inline-block;"></div>
+    </div>
+
+    <h2>Strong Correlations</h2>
+    <ul id="strong-correlations" class="list-group"></ul>
+
+    <h2>Detailed Analysis</h2>
+    <div id="detailed-analysis"></div>
+
+    <script src="static/js/main.js"></script>
+    <script src="static/js/correlation.js"></script>
+    <script src="static/js/detailed_analysis.js"></script>
+</body>
+</html>
